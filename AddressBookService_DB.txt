@@ -1,5 +1,3 @@
-Welcome to address book service program
-
 mysql> select * from address_book_table where Relation="Friend";
 +-----------+----------+------------+------+-------------+--------+-------------+------------------+--------------+----------+
 | FirstName | LastName | Address    | City | State       | Zip    | PhoneNumber | Email            | RelativeName | Relation |
@@ -15,3 +13,35 @@ mysql> select * from address_book_table where Relation="Uncle";
 | Amar      | Patil    | Saiful  | Solapur | Maharashtra | 413004 |   798792862 | amar@gmail.com | Anil         | Uncle    |
 +-----------+----------+---------+---------+-------------+--------+-------------+----------------+--------------+----------+
 1 row in set (0.00 sec)
+
+mysql> select * from address_book_table where Relation="Aunty";
++-----------+----------+---------+--------+-------------+--------+-------------+-----------------+--------------+----------+
+| FirstName | LastName | Address | City   | State       | Zip    | PhoneNumber | Email           | RelativeName | Relation |
++-----------+----------+---------+--------+-------------+--------+-------------+-----------------+--------------+----------+
+| Divya     | Hungund  | Thane   | Mumbai | Maharashtra | 411002 |    97892723 | divya@gmail.com | Arati        | Aunty    |
++-----------+----------+---------+--------+-------------+--------+-------------+-----------------+--------------+----------+
+1 row in set (0.00 sec)
+
+mysql> update address_book_table set RelativeName='Shrikant' where FirstName='Amar';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set RelativeName='Gafur' where FirstName='Aniket';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set RelativeName='Veena' where FirstName='Divya';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book_table;
++-----------+----------+------------+---------+-------------+--------+-------------+------------------+--------------+----------+
+| FirstName | LastName | Address    | City    | State       | Zip    | PhoneNumber | Email            | RelativeName | Relation |
++-----------+----------+------------+---------+-------------+--------+-------------+------------------+--------------+----------+
+| Amar      | Patil    | Saiful     | Solapur | Maharashtra | 413004 |   798792862 | amar@gmail.com   | Shrikant     | Uncle    |
+| Aniket    | Pawar    | AnupamPark | Pune    | Maharashtra | 413004 |   740189237 | aniket@gmail.com | Gafur        | Friend   |
+| Divya     | Hungund  | Thane      | Mumbai  | Maharashtra | 411002 |    97892723 | divya@gmail.com  | Veena        | Aunty    |
++-----------+----------+------------+---------+-------------+--------+-------------+------------------+--------------+----------+
+3 rows in set (0.00 sec)
+
+mysql>
