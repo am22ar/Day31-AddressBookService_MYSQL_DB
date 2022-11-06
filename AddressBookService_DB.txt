@@ -1,30 +1,22 @@
 Welcome to address book service program
 
-mysql>  create table address_book_Table(FirstName VARCHAR(100)NOT NULL,LastName VARCHAR(100)NOT NULL,Address VARCHAR(200)
-    -> ,City VARCHAR(100),State VARCHAR(100),Zip INT(10),PhoneNumber INT(20),Email VARCHAR(100));
-Query OK, 0 rows affected, 2 warnings (0.03 sec)
+mysql> insert into address_book_table VALUES('Amar','Patil','Saiful','Solapur','Maharashtra',413004,798792862,'amar@gmail.com');
+Query OK, 1 row affected (0.01 sec)
 
-mysql> show tables;
-+--------------------------------+
-| Tables_in_address_book_service |
-+--------------------------------+
-| address_book_table             |
-+--------------------------------+
-1 row in set (0.01 sec)
+mysql> insert into address_book_table VALUES('Aniket','Pawar','AnupamPark','Solapur','Maharashtra',413004,79873221,'aniket@gmail.com');
+Query OK, 1 row affected (0.00 sec)
 
-mysql> desc address_book_table;
-+-------------+--------------+------+-----+---------+-------+
-| Field       | Type         | Null | Key | Default | Extra |
-+-------------+--------------+------+-----+---------+-------+
-| FirstName   | varchar(100) | NO   |     | NULL    |       |
-| LastName    | varchar(100) | NO   |     | NULL    |       |
-| Address     | varchar(200) | YES  |     | NULL    |       |
-| City        | varchar(100) | YES  |     | NULL    |       |
-| State       | varchar(100) | YES  |     | NULL    |       |
-| Zip         | int          | YES  |     | NULL    |       |
-| PhoneNumber | int          | YES  |     | NULL    |       |
-| Email       | varchar(100) | YES  |     | NULL    |       |
-+-------------+--------------+------+-----+---------+-------+
-8 rows in set (0.01 sec)
+mysql> insert into address_book_table VALUES('Divya','Hungund','Thane','Mumbai','Maharashtra',411002,97892723,'divya@gmail.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from address_book_table;
++-----------+----------+------------+---------+-------------+--------+-------------+------------------+
+| FirstName | LastName | Address    | City    | State       | Zip    | PhoneNumber | Email            |
++-----------+----------+------------+---------+-------------+--------+-------------+------------------+
+| Amar      | Patil    | Saiful     | Solapur | Maharashtra | 413004 |   798792862 | amar@gmail.com   |
+| Aniket    | Pawar    | AnupamPark | Solapur | Maharashtra | 413004 |    79873221 | aniket@gmail.com |
+| Divya     | Hungund  | Thane      | Mumbai  | Maharashtra | 411002 |    97892723 | divya@gmail.com  |
++-----------+----------+------------+---------+-------------+--------+-------------+------------------+
+3 rows in set (0.00 sec)
 
 mysql>
