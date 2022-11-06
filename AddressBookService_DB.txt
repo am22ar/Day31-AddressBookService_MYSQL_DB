@@ -1,12 +1,6 @@
 Welcome to address book service program
 
-mysql> insert into address_book_table VALUES('Amar','Patil','Saiful','Solapur','Maharashtra',413004,798792862,'amar@gmail.com');
-Query OK, 1 row affected (0.01 sec)
-
-mysql> insert into address_book_table VALUES('Aniket','Pawar','AnupamPark','Solapur','Maharashtra',413004,79873221,'aniket@gmail.com');
-Query OK, 1 row affected (0.00 sec)
-
-mysql> insert into address_book_table VALUES('Divya','Hungund','Thane','Mumbai','Maharashtra',411002,97892723,'divya@gmail.com');
+mysql> delete from address_book_table where FirstName="Divya";
 Query OK, 1 row affected (0.00 sec)
 
 mysql> select * from address_book_table;
@@ -14,9 +8,8 @@ mysql> select * from address_book_table;
 | FirstName | LastName | Address    | City    | State       | Zip    | PhoneNumber | Email            |
 +-----------+----------+------------+---------+-------------+--------+-------------+------------------+
 | Amar      | Patil    | Saiful     | Solapur | Maharashtra | 413004 |   798792862 | amar@gmail.com   |
-| Aniket    | Pawar    | AnupamPark | Solapur | Maharashtra | 413004 |    79873221 | aniket@gmail.com |
-| Divya     | Hungund  | Thane      | Mumbai  | Maharashtra | 411002 |    97892723 | divya@gmail.com  |
+| Aniket    | Pawar    | AnupamPark | Solapur | Maharashtra | 413004 |   740189237 | aniket@gmail.com |
 +-----------+----------+------------+---------+-------------+--------+-------------+------------------+
-3 rows in set (0.00 sec)
+2 rows in set (0.00 sec)
 
 mysql>
