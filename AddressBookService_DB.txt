@@ -1,13 +1,88 @@
 Welcome to address book service program
 
-mysql> select * from address_book_table order by LastName Desc;
-+-----------+----------+------------+---------+-------------+--------+-------------+------------------+
-| FirstName | LastName | Address    | City    | State       | Zip    | PhoneNumber | Email            |
-+-----------+----------+------------+---------+-------------+--------+-------------+------------------+
-| Aniket    | Pawar    | AnupamPark | Pune    | Maharashtra | 413004 |   740189237 | aniket@gmail.com |
-| Amar      | Patil    | Saiful     | Solapur | Maharashtra | 413004 |   798792862 | amar@gmail.com   |
-| Divya     | Hungund  | Thane      | Mumbai  | Maharashtra | 411002 |    97892723 | divya@gmail.com  |
-+-----------+----------+------------+---------+-------------+--------+-------------+------------------+
+mysql> alter table address_book_table ADD COLUMN RelativeName VARCHAR(100);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc address_book_table;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| FirstName    | varchar(100) | NO   |     | NULL    |       |
+| LastName     | varchar(100) | NO   |     | NULL    |       |
+| Address      | varchar(200) | YES  |     | NULL    |       |
+| City         | varchar(100) | YES  |     | NULL    |       |
+| State        | varchar(100) | YES  |     | NULL    |       |
+| Zip          | int          | YES  |     | NULL    |       |
+| PhoneNumber  | int          | YES  |     | NULL    |       |
+| Email        | varchar(100) | YES  |     | NULL    |       |
+| RelativeName | varchar(100) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> alter table address_book_table ADD COLUMN Relation VARCHAR(100);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc address_book_table;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| FirstName    | varchar(100) | NO   |     | NULL    |       |
+| LastName     | varchar(100) | NO   |     | NULL    |       |
+| Address      | varchar(200) | YES  |     | NULL    |       |
+| City         | varchar(100) | YES  |     | NULL    |       |
+| State        | varchar(100) | YES  |     | NULL    |       |
+| Zip          | int          | YES  |     | NULL    |       |
+| PhoneNumber  | int          | YES  |     | NULL    |       |
+| Email        | varchar(100) | YES  |     | NULL    |       |
+| RelativeName | varchar(100) | YES  |     | NULL    |       |
+| Relation     | varchar(100) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> update address_book_table set RelativeName="Anil" where FirstName="Amar";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set RelativeName="Amar" where FirstName="Aniket";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set RelativeName="Arati" where FirstName="Divya";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book_table;
++-----------+----------+------------+---------+-------------+--------+-------------+------------------+--------------+----------+
+| FirstName | LastName | Address    | City    | State       | Zip    | PhoneNumber | Email            | RelativeName | Relation |
++-----------+----------+------------+---------+-------------+--------+-------------+------------------+--------------+----------+
+| Amar      | Patil    | Saiful     | Solapur | Maharashtra | 413004 |   798792862 | amar@gmail.com   | Anil         | NULL     |
+| Aniket    | Pawar    | AnupamPark | Pune    | Maharashtra | 413004 |   740189237 | aniket@gmail.com | Amar         | NULL     |
+| Divya     | Hungund  | Thane      | Mumbai  | Maharashtra | 411002 |    97892723 | divya@gmail.com  | Arati        | NULL     |
++-----------+----------+------------+---------+-------------+--------+-------------+------------------+--------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> update address_book_table set Relation="Aunty" where FirstName="Divya";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set Relation="Friend" where FirstName="Aniket";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set Relation="Uncle" where FirstName="Amar";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book_table;
++-----------+----------+------------+---------+-------------+--------+-------------+------------------+--------------+----------+
+| FirstName | LastName | Address    | City    | State       | Zip    | PhoneNumber | Email            | RelativeName | Relation |
++-----------+----------+------------+---------+-------------+--------+-------------+------------------+--------------+----------+
+| Amar      | Patil    | Saiful     | Solapur | Maharashtra | 413004 |   798792862 | amar@gmail.com   | Anil         | Uncle    |
+| Aniket    | Pawar    | AnupamPark | Pune    | Maharashtra | 413004 |   740189237 | aniket@gmail.com | Amar         | Friend   |
+| Divya     | Hungund  | Thane      | Mumbai  | Maharashtra | 411002 |    97892723 | divya@gmail.com  | Arati        | Aunty    |
++-----------+----------+------------+---------+-------------+--------+-------------+------------------+--------------+----------+
 3 rows in set (0.00 sec)
 
 mysql>
