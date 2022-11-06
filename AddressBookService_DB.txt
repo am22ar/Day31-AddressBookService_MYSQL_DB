@@ -1,15 +1,27 @@
 Welcome to address book service program
 
-mysql> delete from address_book_table where FirstName="Divya";
-Query OK, 1 row affected (0.00 sec)
+mysql> select * from address_book_table where City="Solapur";
++-----------+----------+---------+---------+-------------+--------+-------------+----------------+
+| FirstName | LastName | Address | City    | State       | Zip    | PhoneNumber | Email          |
++-----------+----------+---------+---------+-------------+--------+-------------+----------------+
+| Amar      | Patil    | Saiful  | Solapur | Maharashtra | 413004 |   798792862 | amar@gmail.com |
++-----------+----------+---------+---------+-------------+--------+-------------+----------------+
+1 row in set (0.00 sec)
 
-mysql> select * from address_book_table;
-+-----------+----------+------------+---------+-------------+--------+-------------+------------------+
-| FirstName | LastName | Address    | City    | State       | Zip    | PhoneNumber | Email            |
-+-----------+----------+------------+---------+-------------+--------+-------------+------------------+
-| Amar      | Patil    | Saiful     | Solapur | Maharashtra | 413004 |   798792862 | amar@gmail.com   |
-| Aniket    | Pawar    | AnupamPark | Solapur | Maharashtra | 413004 |   740189237 | aniket@gmail.com |
-+-----------+----------+------------+---------+-------------+--------+-------------+------------------+
-2 rows in set (0.00 sec)
+mysql> select * from address_book_table where City="Pune";
++-----------+----------+------------+------+-------------+--------+-------------+------------------+
+| FirstName | LastName | Address    | City | State       | Zip    | PhoneNumber | Email            |
++-----------+----------+------------+------+-------------+--------+-------------+------------------+
+| Aniket    | Pawar    | AnupamPark | Pune | Maharashtra | 413004 |   740189237 | aniket@gmail.com |
++-----------+----------+------------+------+-------------+--------+-------------+------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from address_book_table where City="Mumbai";
++-----------+----------+---------+--------+-------------+--------+-------------+-----------------+
+| FirstName | LastName | Address | City   | State       | Zip    | PhoneNumber | Email           |
++-----------+----------+---------+--------+-------------+--------+-------------+-----------------+
+| Divya     | Hungund  | Thane   | Mumbai | Maharashtra | 411002 |    97892723 | divya@gmail.com |
++-----------+----------+---------+--------+-------------+--------+-------------+-----------------+
+1 row in set (0.00 sec)
 
 mysql>
